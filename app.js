@@ -9,11 +9,11 @@ let img1 = document.getElementsByClassName("img");
         "./subject/assets/imageF.jpg",
       ];
       let originalImages = [
-        "./subject/assets/img1.jpg",
-        "./subject/assets/img2.jpg",
-        "./subject/assets/img3.jpg",
-        "./subject/assets/img4.jpg",
-        "./subject/assets/img5.jpg",
+        "./assets/img1.jpg",
+        "./assets/img2.jpg",
+        "./assets/img3.jpg",
+        "./assets/img4.jpg",
+        "./assets/img5.jpg",
       ];
 
       let alpha = ["C", "D", "E", "G", "F"];
