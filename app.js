@@ -2,11 +2,11 @@ let img1 = document.getElementsByClassName("img");
       let sound_1 = document.getElementsByClassName("sound");
 
       let imag2 = [
-        "./subject/assets/imageC.png",
-        "./subject/assets/imageD.jpg",
-        "./subject/assets/imageE.jpg",
-        "./subject/assets/imageG.png",
-        "./subject/assets/imageF.jpg",
+        "./assets/imageC.png",
+        "./assets/imageD.jpg",
+        "./assets/imageE.jpg",
+        "./assets/imageG.png",
+        "./assets/imageF.jpg",
       ];
       let originalImages = [
         "./assets/img1.jpg",
