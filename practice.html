@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Dice Roll Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin: 30px;
+        }
+        .dice {
+            width: 100px;
+            height: 100px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .roll-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .roll-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎲 Realistic Dice Roll Game 🎲</h1>
+
+    <div class="dice-container">
+        <div>
+            <h2>Player 1</h2>
+            <img src="../subject/assets/imageD.jpg" alt="Dice" class="dice" id="player1Dice">
+        </div>
+        <div>
+            <h2>Player 2</h2>
+            <img src="../subject/assets/image1.jpg" alt="Dice" class="dice" id="player2Dice">
+        </div>
+    </div>
+
+    <button class="roll-btn" onclick="rollDice()">Roll Dice</button>
+    <p class="result" id="result"></p>
+
+    <audio id="diceSound" src="roll.mp3"></audio>
+
+    <script>
+        function rollDice() {
+            let diceSound = document.getElementById("diceSound");
+            diceSound.play(); // Play rolling sound
+            
+            let player1Dice = document.getElementById("player1Dice");
+            let player2Dice = document.getElementById("player2Dice");
+            let resultText = document.getElementById("result");
+
+            // Add rolling animation (change images rapidly)
+            let rollAnimation = setInterval(() => {
+                let randomNum1 = Math.floor(Math.random() * 6) + 1;
+                let randomNum2 = Math.floor(Math.random() * 6) + 1;
+
+                player1Dice.src = `${randomNum1}.png`;
+                player2Dice.src = `dice${randomNum2}.png`;
+            }, 100);
+
+            // Stop animation after 2 seconds and show final result
+            setTimeout(() => {
+                clearInterval(rollAnimation);
+                
+                let finalDice1 = Math.floor(Math.random() * 6) + 1;
+                let finalDice2 = Math.floor(Math.random() * 6) + 1;
+
+                player1Dice.src = `dice${finalDice1}.png`;
+                player2Dice.src = `dice${finalDice2}.png`;
+
+                if (finalDice1 > finalDice2) {
+                    resultText.innerText = "🎉 Player 1 Wins!";
+                } else if (finalDice2 > finalDice1) {
+                    resultText.innerText = "🎉 Player 2 Wins!";
+                } else {
+                    resultText.innerText = "🤝 It's a Draw!";
+                }
+            }, 2000);
+
+
+
+
+        }
+
+
+    </script>
+
+</body>
+</html>

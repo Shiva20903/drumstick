@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(143, 210, 152);
+    }
+    h1,h3{
+      background-image: url(https://img.freepik.com/free-vector/realistic-red-blue-flames-background_52683-13604.jpg?ga=GA1.1.466282671.1742998575&semt=ais_hybrid);
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: dice 1s ease 1s 100000 alternate ;
+    }
+/*     
+    @keyframes dice {
+      from{
+        transform: translate(100px);
+      }
+      from{
+        transform: translate(-100px);
+      }
+    } */
+
+    
+  </style>
+  <body>
+    <div class="container">
+      <h1>Welcome to Dice <br />Game</h1>
+      <div class="maindice">
+        <div class="diceimg">
+          <h3>PLAYER 1</h3>
+          <img id="player1" src="./assets/PlayerDice.jpg" alt="Dice" />
+        </div>
+        <div class="diceimg">
+          <h3>PLAYER 2</h3>
+          <img id="player2" src="./assets/PlayerDice.jpg" alt="Dice" />
+        </div>
+      </div>
+      <div>
+        <button
+          style="margin: 20px 67px; height: 30px; width: 100px; color: teal"
+          id="dicebutton"
+        >
+          click me
+        </button>
+      </div>
+    </div>
+    <audio class="audio" src="./assets/rpg-dice-rolling-95182.mp3"></audio>
+    <h1 id="result"></h1>
+    <script>
+      // DICE PROJECT CODE START
+      let random1, random2;
+
+      let btn = document.getElementById("dicebutton");
+
+      btn.addEventListener("click", () => {
+        let player1 = document.getElementById("player1");
+        let player2 = document.getElementById("player2");
+        let audio = document.getElementsByClassName("audio");
+
+        let rotationtime = setInterval(() => {
+          audio[0].play();
+          random1 = Math.floor(Math.random() * 6) + 1;
+          random2 = Math.floor(Math.random() * 6) + 1;
+          player1.src = `./assets/dice${random1}.jpg`;
+          player2.src = `./assets/dice${random2}.jpg`;
+        }, 1);
+
+        let winner = document.getElementById("result");
+
+        setTimeout(() => {
+          clearInterval(rotationtime);
+          if (random1 > random2) {
+            let data = (winner.innerText =
+              " 🎉🎉  Player 1 won the game 🎉 🎉 ");
+
+            console.log(data);
+          } else if (random1 < random2) {
+            let data = (winner.innerText =
+              " 🎉 🎉  Player 2 won the game 🎉 🎉  ");
+            console.log(data);
+          } else {
+            winner.innerText = "Draw the game🎉 🎉 🎉  ";
+          }
+        }, 100);
+      });
+    </script>
+
+  </body>
+</html>
