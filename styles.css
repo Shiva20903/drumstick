@@ -33,3 +33,24 @@
   height: 100px;
   width: 100px;
 }
+  
+
+/* Dice game styles start here */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(143, 210, 152);
+}
+
+h3 {
+  background-image: url(https://img.freepik.com/free-vector/realistic-red-blue-flames-background_52683-13604.jpg?ga=GA1.1.466282671.1742998575&semt=ais_hybrid);
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: dice 1s ease 1s 100000 alternate;
+}
+
+/* Dice game styles end here */
